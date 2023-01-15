@@ -1,0 +1,138 @@
+---
+title: 'How to setup OpenGL on macOs (Apple Silicon and Intel)'
+date: '2020-01-01'
+---
+In this blog post I will show you how to setup OpenGL on macOs.
+We will also make a triangle using OpenGL to verify the installation.
+---
+
+In this blog I will show you how to setup OpenGL on macOs.
+
+Make sure you have Xcode installed before beginning.
+
+The inital steps are same for both Intel and Apple Silicon Macs
+
+# Step 1: Installing homebrew
+
+First of all install [homebrew](https://brew.sh) using the following command
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+# Step 2: Install glut
+
+OpenGL Utility Toolkit (GLUT) is a utility library for OpenGL.
+It provides functions to create windows and handle I/O
+
+The original GLUT library was abondoned so a free open source alternative was created called [freeglut](https://freeglut.sourceforge.net)
+
+To install freeglut run the following command 
+
+```bash
+brew install freeglut
+```
+
+# Step 3: Install XQuartz
+
+[XQuartz](http://www.xquartz.org) is a display server required by freeglut.
+
+Install it using this command
+
+```
+brew install xquartz
+```
+
+And now restart your system
+
+# Step 4: Verify the installation
+
+Now will will run a small program to verify the installation
+
+I copied the following [code](https://www.geeksforgeeks.org/getting-started-with-opengl/) from geeksforgeeks.
+
+Create a file named `main.cpp` and add the following code
+
+```c
+// C program to demonstrate
+// drawing a circle using
+// OpenGL
+#include<stdio.h>
+#include<GL/glut.h>
+#include<math.h>
+#define pi 3.142857
+
+// function to initialize
+void myInit (void)
+{
+	// making background color black as first
+	// 3 arguments all are 0.0
+	glClearColor(0.0, 0.0, 0.0, 1.0);
+	
+	// making picture color green (in RGB mode), as middle argument is 1.0
+	glColor3f(0.0, 1.0, 0.0);
+	
+	// breadth of picture boundary is 1 pixel
+	glPointSize(1.0);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	
+	// setting window dimension in X- and Y- direction
+	gluOrtho2D(-780, 780, -420, 420);
+}
+
+void display (void)
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	glBegin(GL_POINTS);
+	float x, y, i;
+	
+	// iterate y up to 2*pi, i.e., 360 degree
+	// with small increment in angle as
+	// glVertex2i just draws a point on specified co-ordinate
+	for ( i = 0; i < (2 * pi); i += 0.001)
+	{
+		// let 200 is radius of circle and as,
+		// circle is defined as x=r*cos(i) and y=r*sin(i)
+		x = 200 * cos(i);
+		y = 200 * sin(i);
+		
+		glVertex2i(x, y);
+	}
+	glEnd();
+	glFlush();
+}
+
+int main (int argc, char** argv)
+{
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+	
+	// giving window size in X- and Y- direction
+	glutInitWindowSize(1366, 768);
+	glutInitWindowPosition(0, 0);
+	
+	// Giving name to window
+	glutCreateWindow("Circle Drawing");
+	myInit();
+	
+	glutDisplayFunc(display);
+	glutMainLoop();
+}
+
+```
+
+Now open terminal and compile the program using the following command
+
+```bash
+clang -lglut -framework opengl -o main main.cpp 
+```
+
+Run the program using the following command
+
+```bash
+./main
+```
+
+A window should open with a green circle in the centre.
+
+If you encounter any error or need further help, please feel free to reach out to me.

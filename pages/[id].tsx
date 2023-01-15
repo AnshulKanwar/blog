@@ -2,8 +2,9 @@ import { GetStaticProps } from "next";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { ParsedUrlQuery } from "querystring";
+import A from "../components/blog/a";
 import Layout from "../components/layout";
-import { getAllPostsIds, getPost, Post as TPost } from "../lib/posts";
+import { getAllPostsIds, getPost } from "../lib/posts";
 import { formatDate } from "../lib/utils";
 
 interface Props {
@@ -12,17 +13,22 @@ interface Props {
   content: MDXRemoteSerializeResult;
 }
 
+// TODO: Fix this
+const components = {
+//   a: A
+}
+
 const Post = ({ title, date, content }: Props) => {
   return (
     <Layout>
-      <div className="max-w-3xl mx-auto mt-24">
+      <div className="max-w-3xl mx-auto my-24">
         <div className="mb-10">
           <h1 className="text-4xl font-bold mb-5">{title}</h1>
           <span className="text-gray-500 text-sm">{formatDate(date)}</span>
         </div>
         <hr />
         <article className="mt-10 prose dark:prose-invert">
-          <MDXRemote {...content} />
+          <MDXRemote {...content} components={components} />
         </article>
       </div>
     </Layout>
