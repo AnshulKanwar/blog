@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-around py-10">
       <div className="flex gap-10 items-center">
-        <a href="https://www.anshulkanwar.tech" className="w-12 cursor-pointer">
+        <a href="https://www.anshulkanwar.tech" className="w-20 cursor-pointer">
           <Logo />
         </a>
         <Link href="/">

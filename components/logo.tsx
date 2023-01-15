@@ -18,37 +18,27 @@ const Logo = () => {
 
   return (
     <svg
-      viewBox="0 0 512 253"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        id="k-top"
-        d="M499.929 4.99998L264.649 240.279V4.99998L499.929 4.99998Z"
-        stroke={color}
-        stroke-width="10"
-      />
-      <path
-        id="k-bottom"
-        d="M264.649 12.071L499.929 247.35L264.649 247.35V12.071Z"
-        fill={color}
-        stroke={color}
-        stroke-width="10"
-      />
-      <path
-        id="a-right"
-        d="M247.35 240.279L12.0711 5H247.35V240.279Z"
-        fill={color}
-        stroke={color}
-        stroke-width="10"
-      />
-      <path
-        id="a-left"
-        d="M240.279 4.99998L5.00002 240.279V4.99998H240.279Z"
-        stroke={color}
-        stroke-width="10"
-      />
-    </svg>
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 485 237"
+  >
+    <path
+      stroke={color}
+      strokeWidth="20"
+      d="M460.858 10L258.415 212.443V10h202.443z"
+    ></path>
+    <path
+      fill={color}
+      stroke={color}
+      strokeWidth="20"
+      d="M258.415 24.142l202.443 202.443H258.415V24.142zM226.585 212.443L24.142 10h202.443v202.443z"
+    ></path>
+    <path
+      stroke={color}
+      strokeWidth="20"
+      d="M212.443 10L10 212.443V10h202.443z"
+    ></path>
+  </svg>
   );
 };
 
