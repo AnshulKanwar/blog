@@ -22,13 +22,12 @@ const components = {
 const Post = ({ title, date, content }: Props) => {
   return (
     <Layout>
-      <div className="max-w-3xl mx-auto my-24">
+      <div className="max-w-[65ch] mx-auto my-24">
         <div className="mb-10">
           <h1 className="text-4xl font-bold mb-5">{title}</h1>
           <span className="text-gray-500 text-sm">{formatDate(date)}</span>
         </div>
-        <hr />
-        <article className="mt-10 prose dark:prose-invert">
+        <article className="mt-10 mx-auto prose dark:prose-invert">
           <MDXRemote {...content} components={components} />
         </article>
       </div>
