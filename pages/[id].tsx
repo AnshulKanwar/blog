@@ -2,7 +2,7 @@ import { GetStaticProps } from "next";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import { ParsedUrlQuery } from "querystring";
-import A from "../components/blog/a";
+import Alert from "../components/blog/alert";
 import Layout from "../components/layout";
 import { getAllPostsIds, getPost } from "../lib/posts";
 import { formatDate } from "../lib/utils";
@@ -16,6 +16,7 @@ interface Props {
 // TODO: Fix this
 const components = {
 //   a: A
+  Alert
 }
 
 const Post = ({ title, date, content }: Props) => {
