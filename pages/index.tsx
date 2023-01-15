@@ -1,14 +1,29 @@
 import type { NextPage } from "next";
-import Layout from "../components/layout";
+import { GetStaticProps } from "next"
+import { getSortedPostsData, Post } from "../lib/posts"
 
-const Home: NextPage = () => {
+import Layout from "../components/layout";
+import PostsList from "../components/postsList";
+
+type Props = {
+    postItems: Post[]
+}
+
+const Home: NextPage<Props> = ({ postItems }) => {
   return (
     <Layout>
-      <div className="text-5xl font-bold text-center mt-48">
-        <h1>🚀 Coming Soon...</h1>
-      </div>
+      <PostsList postItems={postItems} />
     </Layout>
   );
 };
+
+export const getStaticProps: GetStaticProps = () => {
+    const postItems = getSortedPostsData()
+    return {
+        props: {
+            postItems
+        }
+    }
+}
 
 export default Home;
