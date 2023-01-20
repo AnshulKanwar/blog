@@ -13,7 +13,7 @@ const Navbar = () => {
           <h1 className="text-xl font-bold cursor-pointer">Blog</h1>
         </Link>
       </div>
-      <div className="flex gap-20 text-neutral-300 dark:text-neutral-700">
+      <div className="flex gap-20 items-center text-neutral-300 dark:text-neutral-700">
         <span className="transition hover:text-black dark:hover:text-white">
           <ThemeToggle />
         </span>
