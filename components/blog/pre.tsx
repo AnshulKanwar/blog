@@ -1,10 +1,7 @@
 import { useState, useEffect, ReactElement, ReactNode } from "react";
 import { useTheme } from "next-themes";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import {
-  atelierCaveLight,
-  atelierCaveDark,
-} from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { atelierCaveLight, atelierCaveDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 interface Props {
   className?: string | undefined;
