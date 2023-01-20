@@ -26,43 +26,43 @@ type TColorSchemes = {
 const colorSchemes: TColorSchemes = {
   important: {
     light: {
-      bg: "bg-red-100",
-      border: "border-red-200",
-      accent: "bg-red-200",
+      bg: "bg-rose-100",
+      border: "border-rose-200",
+      accent: "bg-rose-200",
       icon: <TbAlertTriangle className="w-5 h-5" />,
     },
     dark: {
-      bg: "bg-red-500",
-      border: "border-red-600",
-      accent: "bg-red-600",
+      bg: "bg-rose-500",
+      border: "border-rose-600",
+      accent: "bg-rose-600",
       icon: <TbAlertTriangle className="w-5 h-5" />,
     },
   },
   note: {
     light: {
-      bg: "bg-green-100",
-      border: "border-green-200",
-      accent: "bg-green-200",
+      bg: "bg-teal-100",
+      border: "border-teal-200",
+      accent: "bg-teal-200",
       icon: <TbAlertCircle className="w-5 h-5" />,
     },
     dark: {
-      bg: "bg-green-500",
-      border: "border-green-600",
-      accent: "bg-green-600",
+      bg: "bg-teal-500",
+      border: "border-teal-600",
+      accent: "bg-teal-600",
       icon: <TbAlertCircle className="w-5 h-5" />,
     }
   },
   warning: {
     light: {
-      bg: "bg-green-100",
-      border: "border-green-200",
-      accent: "bg-green-200",
+      bg: "bg-amber-100",
+      border: "border-amber-200",
+      accent: "bg-amber-200",
       icon: <TbAlertCircle className="w-5 h-5" />,
     },
     dark: {
-      bg: "bg-green-100",
-      border: "border-green-200",
-      accent: "bg-green-200",
+      bg: "bg-amber-500",
+      border: "border-amber-600",
+      accent: "bg-amber-600",
       icon: <TbAlertCircle className="w-5 h-5" />,
     }
   },
@@ -96,7 +96,7 @@ const Alert = ({ type, children }: Props) => {
   }
 
   return (
-    <div className={`${bg} ${border} border-2 rounded-md`}>
+    <div className={`${bg} ${border} border-2 rounded-md mb-5`}>
       <div
         className={`flex ${accent} items-center gap-2 px-5 py-1 TbAlertCircle font-bold dark:text-white`}
       >
