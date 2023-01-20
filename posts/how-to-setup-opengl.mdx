@@ -2,16 +2,11 @@
 title: "How to setup OpenGL on macOs (Apple Silicon and Intel)"
 date: "2020-01-15"
 ---
-
 In this blog post I will show you how to setup OpenGL on macOs.
-We will also make a triangle using OpenGL to verify the installation.
-
 ---
 
-In this blog I will show you how to setup OpenGL on macOs.
-
 <Alert type="Important">
-  Make sure you have Xcode installed before beginning.
+  Make sure you have Xcode installed before continuing.
 </Alert>
 
 The inital steps are same for both Intel and Apple Silicon Macs
@@ -29,7 +24,7 @@ First of all install [homebrew](https://brew.sh) using the following command
 <Alert type="Note">
   I recommend using GLFW instead of GLUT. GLFW is a modern alternative to GLUT.
   Let me know if you want a separate tutorial on using OpenGL with GLFW.
-  Using GLFW also means you wont need to install XQuartz (step 3)
+  Using GLFW also means you can skip step 3
 </Alert>
 
 OpenGL Utility Toolkit (GLUT) is a utility library for OpenGL.
@@ -53,7 +48,7 @@ Install it using this command
 brew install xquartz
 ```
 
-And now restart your system
+And now **restart your system**
 
 # Step 4: Verify the installation
 
