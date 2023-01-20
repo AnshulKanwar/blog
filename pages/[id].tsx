@@ -11,6 +11,7 @@ import { formatDate } from "../lib/utils";
 import A from "../components/blog/a";
 import Alert from "../components/blog/alert";
 import Image from "../components/blog/image";
+import Pre from "../components/blog/pre";
 
 interface Props {
   title: string;
@@ -21,6 +22,7 @@ interface Props {
 const components = {
   a: A,
   img: Image,
+  pre: Pre,
   Alert,
 }
 
