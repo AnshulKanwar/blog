@@ -54,83 +54,36 @@ And now **restart your system**
 
 Now will will run a small program to verify the installation
 
-I copied the following [code](https://www.geeksforgeeks.org/getting-started-with-opengl/) from geeksforgeeks.
-
 Create a file named `main.cpp` and add the following code
 
-```c
-// C program to demonstrate
-// drawing a circle using
-// OpenGL
-#include<stdio.h>
-#include<GL/glut.h>
-#include<math.h>
-#define pi 3.142857
+```cpp
+#include <GL/gl.h>
+#include <GL/glut.h>
 
-// function to initialize
-void myInit (void)
-{
-	// making background color black as first
-	// 3 arguments all are 0.0
-	glClearColor(0.0, 0.0, 0.0, 1.0);
-
-	// making picture color green (in RGB mode), as middle argument is 1.0
-	glColor3f(0.0, 1.0, 0.0);
-
-	// breadth of picture boundary is 1 pixel
-	glPointSize(1.0);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-
-	// setting window dimension in X- and Y- direction
-	gluOrtho2D(-780, 780, -420, 420);
+void display() {
+    glClearColor(0.4f, 0.08f, 0.6f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glFlush();
 }
 
-void display (void)
-{
-	glClear(GL_COLOR_BUFFER_BIT);
-	glBegin(GL_POINTS);
-	float x, y, i;
+int main(int argc, char **argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize(640, 480);
+    glutInitWindowPosition(0, 0);
+    glutCreateWindow("Simple Window");
 
-	// iterate y up to 2*pi, i.e., 360 degree
-	// with small increment in angle as
-	// glVertex2i just draws a point on specified co-ordinate
-	for ( i = 0; i < (2 * pi); i += 0.001)
-	{
-		// let 200 is radius of circle and as,
-		// circle is defined as x=r*cos(i) and y=r*sin(i)
-		x = 200 * cos(i);
-		y = 200 * sin(i);
+    glutDisplayFunc(display);
 
-		glVertex2i(x, y);
-	}
-	glEnd();
-	glFlush();
+    glClearColor(0.2f, 0.5f, 0.07f, 1.0f);
+    glutMainLoop();
 }
-
-int main (int argc, char** argv)
-{
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-
-	// giving window size in X- and Y- direction
-	glutInitWindowSize(1366, 768);
-	glutInitWindowPosition(0, 0);
-
-	// Giving name to window
-	glutCreateWindow("Circle Drawing");
-	myInit();
-
-	glutDisplayFunc(display);
-	glutMainLoop();
-}
-
 ```
 
 Now open terminal and compile the program using the following command
 
 ```bash
-clang -lglut -framework opengl -o main main.cpp
+clang++ -lglut -framework opengl -o main main.cpp
 ```
 
 Run the program using the following command
@@ -139,7 +92,9 @@ Run the program using the following command
 ./main
 ```
 
-A window should open with a green circle in the centre.
+You should see something like this:
+
+![Simple Window](simple-window.png)
 
 <Alert type="Note">
   If you encounter any error or need further help, feel free to reach out to me.
