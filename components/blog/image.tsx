@@ -1,8 +1,8 @@
 import NextImage from "next/image";
 
 interface Props {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string | undefined;
 }
 
 const Image = ({ src, alt }: Props) => {
