@@ -18,7 +18,6 @@ interface Props {
   content: MDXRemoteSerializeResult;
 }
 
-// TODO: Fix this
 const components = {
   a: A,
   img: Image,
