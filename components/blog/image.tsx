@@ -7,9 +7,9 @@ interface Props {
 
 const Image = ({ src, alt }: Props) => {
   return (
-    <div className="relative h-96">
+    <span className="block relative h-96">
       <NextImage layout="fill" objectFit="contain" src={`/blog/${src}`} alt={alt} />
-    </div>
+    </span>
   );
 };
 
