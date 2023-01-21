@@ -32,9 +32,9 @@ const colorSchemes: TColorSchemes = {
       icon: <TbAlertTriangle className="w-5 h-5" />,
     },
     dark: {
-      bg: "bg-rose-500",
-      border: "border-rose-600",
-      accent: "bg-rose-600",
+      bg: "bg-rose-800",
+      border: "border-rose-900",
+      accent: "bg-rose-900",
       icon: <TbAlertTriangle className="w-5 h-5" />,
     },
   },
@@ -46,9 +46,9 @@ const colorSchemes: TColorSchemes = {
       icon: <TbAlertCircle className="w-5 h-5" />,
     },
     dark: {
-      bg: "bg-teal-500",
-      border: "border-teal-600",
-      accent: "bg-teal-600",
+      bg: "bg-teal-800",
+      border: "border-teal-900",
+      accent: "bg-teal-900",
       icon: <TbAlertCircle className="w-5 h-5" />,
     }
   },
@@ -60,9 +60,9 @@ const colorSchemes: TColorSchemes = {
       icon: <TbAlertCircle className="w-5 h-5" />,
     },
     dark: {
-      bg: "bg-amber-500",
-      border: "border-amber-600",
-      accent: "bg-amber-600",
+      bg: "bg-amber-800",
+      border: "border-amber-900",
+      accent: "bg-amber-900",
       icon: <TbAlertCircle className="w-5 h-5" />,
     }
   },
