@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 // TODO: migrate from gray-matter to next-mdx-remote
 import matter from "gray-matter";
+import { readingTime } from "./utils";
 
 const postsDir = path.join(process.cwd(), "posts");
 
@@ -11,6 +12,7 @@ export type Post = {
   date: string;
   excerpt?: string;
   content: string;
+  readingTime: number;
 };
 
 export const getSortedPostsData = (): Post[] => {
@@ -27,16 +29,19 @@ export const getSortedPostsData = (): Post[] => {
       content,
     } = matter(fileContents, { excerpt: true });
 
+    const rt = readingTime(content);
+
     return {
       id,
       title,
       date,
       excerpt: excerpt,
       content,
+      readingTime: rt,
     };
   });
 
-  return posts.sort(({ date: a }, {date: b}) => (a > b) ? -1:1)
+  return posts.sort(({ date: a }, { date: b }) => (a > b ? -1 : 1));
 };
 
 export const getAllPostsIds = () => {
@@ -60,11 +65,14 @@ export const getPost = (id: string): Post => {
     excerpt,
   } = matter(fileContents, { excerpt: true });
 
+  const rt = readingTime(content);
+
   return {
     id,
     title,
     date,
     excerpt: excerpt,
     content,
+    readingTime: rt,
   };
 };

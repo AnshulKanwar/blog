@@ -16,6 +16,7 @@ import Pre from "../components/blog/pre";
 interface Props {
   title: string;
   date: string;
+  readingTime: number,
   content: MDXRemoteSerializeResult;
 }
 
@@ -26,13 +27,15 @@ const components = {
   Alert,
 }
 
-const Post = ({ title, date, content }: Props) => {
+const Post = ({ title, date, content, readingTime }: Props) => {
   return (
     <Layout>
       <div className="max-w-[65ch] mx-8 sm:mx-auto my-24">
         <div className="mb-10">
           <h1 className="text-4xl font-bold mb-5">{title}</h1>
           <span className="text-gray-500 text-sm">{formatDate(date)}</span>
+          { " | "}
+          <span className="text-gray-500 text-sm">{readingTime} min read</span>
         </div>
         <article className="mt-10 mx-auto prose dark:prose-invert">
           <MDXRemote {...content} components={components} />

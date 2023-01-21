@@ -10,13 +10,15 @@ type Props = {
 const PostsList: NextPage<Props> = ({ postItems }) => {
   return (
     <div className="max-w-3xl mx-auto mt-24">
-      {postItems.map(({ id, title, excerpt, date }) => (
+      {postItems.map(({ id, title, excerpt, date, readingTime }) => (
         <div key={id}>
           <div className="my-10">
             <Link href={id}>
               <h1 className="text-2xl font-bold hover:underline hover:cursor-pointer">{title}</h1>
             </Link>
             <small>{formatDate(date)}</small>
+            { " | " }
+            <small>{readingTime} min read</small>
             {excerpt && <p className="mt-2">{excerpt}</p>}
           </div>
           <hr />

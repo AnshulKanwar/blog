@@ -15,7 +15,7 @@ The inital steps are same for both Intel and Apple Silicon Macs
 
 First of all install [homebrew](https://brew.sh) using the following command
 
-```bash
+```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
@@ -34,7 +34,7 @@ The original GLUT library was abondoned so a free open source alternative was cr
 
 To install freeglut run the following command
 
-```bash
+```shell
 brew install freeglut
 ```
 
@@ -44,7 +44,7 @@ brew install freeglut
 
 Install it using this command
 
-```
+```shell
 brew install xquartz
 ```
 
@@ -65,7 +65,7 @@ Create a file named `main.cpp` and add the following code
 #include <GL/glut.h>
 
 void display() {
-    glClearColor(0.4f, 0.08f, 0.6f, 1.0f);
+    glClearColor(0.925, 0.898, 0.98, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
     glFlush();
 }
@@ -79,24 +79,24 @@ int main(int argc, char **argv) {
 
     glutDisplayFunc(display);
 
-    glClearColor(0.2f, 0.5f, 0.07f, 1.0f);
     glutMainLoop();
 }
+
 ```
 
 Now open terminal and compile the program using the following command
 
-```bash
+```shell
 clang++ -lglut -framework opengl -o main main.cpp
 ```
 
 Run the program using the following command
 
-```bash
+```shell
 ./main
 ```
 
-You should see something like this:
+You should see a window like this:
 
 ![Simple Window](simple-window.png)
 
